@@ -1,0 +1,50 @@
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Base dos botões */
+  .btn-colaborador,
+  .btn-socio {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Estilos do botão Colaborador */
+  .btn-colaborador {
+    background-color: #e0e0e0;
+    color: black;
+    margin-right: 10px;
+  }
+  .btn-colaborador:hover {
+    background-color: #c8c8c8;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-colaborador.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Estilos do botão Sócio (estado normal) */
+  .btn-socio {
+    background-color: #e0e0e0;
+    color: black;
+  }
+  .btn-socio:hover {
+    background-color: #c8c8c8;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estado ativo: quando a rota é "/socio", o botão sócio ficará com a paleta desejada */
+  .btn-socio.active {
+    background-color: #007bff;
+    color: white;
+  }
+  

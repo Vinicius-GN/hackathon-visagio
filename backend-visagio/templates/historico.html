@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Avaliações</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: auto; padding: 40px; }
+        select, button { font-size: 16px; padding: 10px; margin-top: 10px; }
+        .card { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Histórico de Avaliações</h1>
+
+    <label>Selecione seu nome:</label>
+    <select id="usuario">
+        {% for c in colaboradores %}
+        <option value="{{ c.nome }}">{{ c.nome }}</option>
+        {% endfor %}
+    </select>
+    <button onclick="buscarHistorico()">Ver Histórico</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        async function buscarHistorico() {
+            const nome = document.getElementById('usuario').value;
+            const div = document.getElementById('resultado');
+            div.innerHTML = "Carregando...";
+
+            try {
+                const res = await fetch(`/historico/${encodeURIComponent(nome)}`);
+                const data = await res.json();
+
+                if (res.status !== 200 || !Array.isArray(data)) {
+                    div.innerHTML = `<p>Nenhuma avaliação encontrada.</p>`;
+                    return;
+                }
+
+                let html = `<h2>Avaliações de ${nome}</h2>`;
+                data.forEach(item => {
+                    html += `<div class="card">
+                        <strong>Data:</strong> ${item.data}<br>
+                        <strong>Média:</strong> ${item.media}<br>
+                        <strong>Classificação:</strong> ${item.classificacao}
+                    </div>`;
+                });
+                div.innerHTML = html;
+
+            } catch (err) {
+                div.innerHTML = `<p>Erro ao carregar histórico.</p>`;
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>

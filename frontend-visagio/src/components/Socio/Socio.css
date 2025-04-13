@@ -1,0 +1,42 @@
+.socio-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Copie e cole do Home.css: */
+  
+  .form-wrapper {
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  
+  .form-wrapper label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  
+  .form-wrapper select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .media-button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: default;
+  }
